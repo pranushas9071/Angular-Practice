@@ -1,0 +1,29 @@
+<div class="theme-light">
+  <h2>Should mankind colonize the Universe?</h2>
+  <h3>Agreed : {{ agreed }} , Disagreed : {{ disagreed }}</h3>
+  <!-- Default:
+  <ng-content></ng-content>
+  Questions:
+  <ng-content select=[question]></ng-content> -->
+  <app-voter
+    *ngFor="let voter of voters"
+    [name]="voter"
+    (voted)="onVoted($event)"
+  ></app-voter>
+</div>
+
+<!-- Form validation -->
+
+<!-- <form [formGroup]="myForm" novalidate>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" formControlName="title" />
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="title.errors && (title.touched || title.dirty)"
+    >
+      Invalid Title
+    </div>
+  </div>
+</form> -->

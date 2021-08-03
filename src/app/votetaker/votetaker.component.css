@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  border: 1px solid black;
+  padding: 10px;
+}
+:host-context(.theme-light) h2 {
+  color: brown;
+}
+:host-context(h2) {
+    color: brown;
+  }
+.theme-light {
+  background-color: burlywood;
+}
