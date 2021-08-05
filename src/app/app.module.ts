@@ -10,7 +10,8 @@ import { VersionChildComponent } from './version-child/version-child.component';
 import { VersionParentComponent } from './version-parent/version-parent.component';
 import { VoterComponent } from './voter/voter.component';
 import { VotetakerComponent } from './votetaker/votetaker.component';
-
+import { TemplatePracticeComponent } from './template-practice/template-practice.component';
+import { MyPipe } from './myPipe.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { VotetakerComponent } from './votetaker/votetaker.component';
     VersionParentComponent,
     VersionChildComponent,
     VotetakerComponent,
-    VoterComponent
+    VoterComponent,
+    TemplatePracticeComponent,
+    MyPipe
   ],
   imports: [
     BrowserModule,

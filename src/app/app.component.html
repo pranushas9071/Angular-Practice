@@ -8,7 +8,12 @@
 
 <!--  parent listens to child interaction -->
 
-<app-votetaker>
+<!-- <app-votetaker> -->
   <!-- <p>Checking content projection</p>    
   <p question>Working fine?</p> -->
-</app-votetaker>
+<!-- </app-votetaker> -->
+
+<!-- Template - Piping -->
+
+<app-template-practice [(size)]="fontSize"></app-template-practice>
+<p [style.font-size.px]="fontSize">Resizable Text</p>

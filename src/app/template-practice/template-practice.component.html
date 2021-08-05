@@ -1,0 +1,89 @@
+<!-- <h2>My birthday : {{birthday}}</h2> -->
+<!-- <h2>My birthday : {{birthday | date:"fullDate"}}</h2> -->
+<div class="container">
+  <h2>Power Booster</h2>
+  <p>Super power boost: {{ 2 | myPipe: 10 }}</p>
+</div>
+
+<div class="container">
+  <h3>My birthday :</h3>
+  <h4>{{ birthday | date: format }}</h4>
+  <h4>{{ birthday | date: "full":"IST" }}</h4>
+  <button (click)="toggleFormat()">Toggle</button><br />
+  <input [placeholder]="birthday">
+</div>
+
+<div class="container">
+  <h3>Using uppercase :</h3>
+  <h4>{{ name | uppercase }}</h4>
+</div>
+
+<div class="container">
+  <h3>Using lowercase :</h3>
+  <h4>{{ aName | lowercase }}</h4>
+</div>
+
+<div class="container">
+  <h3>Using currency :</h3>
+  <h4>{{ amount | currency: "INR":"symbol":"4.2-2" }}</h4>
+  <h4>{{ amount | currency: "EUR":"Euros " }}</h4>
+  <!-- Indian rupee , symbole, 4 digits with min and max 2 decimal digits  -->
+</div>
+
+<div class="container">
+  <h3>Using number :</h3>
+  <h4>{{ number1 | number: "4.2-4" }}</h4>
+</div>
+
+<div class="container">
+  <h3>Using percent :</h3>
+  <h4>{{ number2 | percent }}</h4>
+  <h4>{{ number3 | percent: "2.3-5" }}</h4>
+  <h4>{{ number3 | percent: "1.3-5" }}</h4>
+  <h4>{{number3}}</h4>
+</div>
+
+<div class="container">
+  <h3>Attribute binding :</h3>
+  <label>Name : </label>
+  <input [attr.placeholder]="holder" />
+</div>
+
+<div class="container">
+  <h3>Style binding :</h3>
+  <p [style.background-color]="color">Applied background color</p>
+  <p
+    [style.backgroundColor]="bgcolor"
+    style="background-color: aqua"
+    [style]="multiStyles"
+  >
+    Applied multiple styles
+  </p>
+  <p [style]="multiStylesObj">Applied multiple styles using object</p>
+</div>
+
+<div class="container">
+  <p [class.myClass]="applyStyle">Applied a class</p>
+  <p [class]="myClasses">Applied many classes</p>
+</div>
+
+<div class="container">
+  <h3>Event binding</h3>
+  <label>Name : </label>
+  <input type="text" #myInput />
+  <button (click)="change(myInput)">Click me</button>
+</div>
+
+<div class="container">
+  <h3>Two way binding :</h3>
+  <h4>Hello {{ name }}</h4>
+  <label>Name : </label>
+  <input type="text" [(ngModel)]="name" />
+</div>
+
+<div class="container">
+  <h3>Two way binding :</h3>
+  <button (click)="dec()">-</button>
+  <button (click)="inc()">+</button>
+  <p [style.font-size.px]="size">Fontsize : {{ size }}px</p>
+</div>

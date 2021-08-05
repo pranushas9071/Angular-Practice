@@ -1,4 +1,5 @@
 h2,
 .shadow-message {
-  color: blue;
+  color: deeppink;
+  border: 2px solid deeppink;
 }

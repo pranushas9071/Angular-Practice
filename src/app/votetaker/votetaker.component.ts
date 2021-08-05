@@ -10,6 +10,7 @@ export class VotetakerComponent implements OnInit {
   agreed = 0;
   disagreed = 0;
   voters = ['voter A', 'voter B', 'voter C'];
+  // itemImageUrl2 = '';
 
   // title!: FormControl;
   // myForm!: FormGroup;
@@ -18,6 +19,16 @@ export class VotetakerComponent implements OnInit {
     if (agreed) this.agreed++;
     else this.disagreed++;
   }
+
+  // getVal(){
+  //   return "A function"
+  // }
+
+  // changeInput(input: { value: string; focus: () => void; }): void{
+  //   input.value="Pranusha";
+  //   input.focus();
+  // }
+
   constructor() {}
   ngOnInit(): void {
     // this.title = new FormControl('', [Validators.required, Validators.minLength(10)]);
