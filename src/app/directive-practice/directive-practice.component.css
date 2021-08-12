@@ -1,0 +1,22 @@
+h2 {
+    color: darkblue;
+  }
+  h4 {
+    color: sienna;
+  }
+  .container {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .myClass {
+    padding: 5px;
+    background-color: thistle;
+  }
+  .class1 {
+    font-weight: bold;
+  }
+  .class2 {
+    padding: 5px;
+    background-color:wheat;
+  }

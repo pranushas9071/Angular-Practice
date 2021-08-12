@@ -5,6 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './template-practice.component.html',
   styleUrls: ['./template-practice.component.css'],
 })
+
 export class TemplatePracticeComponent implements OnInit {
   @Input() size!: number;
   @Output() sizeChange = new EventEmitter<number>();
@@ -25,8 +26,9 @@ export class TemplatePracticeComponent implements OnInit {
   };
   applyStyle = true;
   myClasses = 'class1 class2';
-
   toggle = true;
+  fillColor = 'rgb(255,0,0)';
+
   get format() {
     return this.toggle ? 'shortDate' : 'fullDate';
   }
@@ -44,8 +46,14 @@ export class TemplatePracticeComponent implements OnInit {
     this.resize(1);
   }
   resize(val: number) {
-    this.size=this.size+val
+    this.size = this.size + val;
     this.sizeChange.emit(this.size);
+  }
+  changeColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    this.fillColor = `rgb(${r},${g},${b})`;
   }
   constructor() {}
 

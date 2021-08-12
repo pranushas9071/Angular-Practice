@@ -1,0 +1,12 @@
+<h2>DOGS</h2>
+<ul class="dogs">
+  <li *ngFor="let dog of dogs">
+    <span class="badge">{{ dog.breed }}</span>
+    {{ dog.species }}
+  </li>
+</ul>
+
+<h2>Listing all dog breeds and species from Dog API :</h2>
+<ul class="dogs">
+  <li *ngFor="let entry of list | keyvalue"><span class="badge">{{ entry.key }}</span>  {{entry.value}}</li>
+</ul>

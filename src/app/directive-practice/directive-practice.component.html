@@ -1,0 +1,48 @@
+<h2>ngClass :</h2>
+<div class="container">
+  <h4>STRING :</h4>
+  <p [ngClass]="'myClass class1'">Using ngClass with string</p>
+</div>
+<div class="container">
+  <h4>ARRAY :</h4>
+  <p [ngClass]="['myClass', 'class1']">Using ngClass with array</p>
+</div>
+<div class="container">
+  <h4>OBJECT</h4>
+  <p [ngClass]="{ myClass: true, class1: false }">Using ngClass with object</p>
+</div>
+<h2>ngStyle :</h2>
+<div class="container">
+  <p [ngStyle]="{ color: 'brown', fontWeight: 'bold', fontSize: '25px' }">
+    Using ngStyle directly
+  </p>
+</div>
+<div class="container">
+  <h4>Enter a color :</h4>
+  <input placeholder="Please enter a color" type="text" #txt /><br /><br />
+  <button (click)="change(txt.value)">click to change color</button>
+  <p [ngStyle]="apply()">Using ngStyle with method</p>
+  <button (click)="diff()">change to different color</button>
+</div>
+<h2>ngIf :</h2>
+<div class="container">
+  <p>Click the button to see how ngIf works</p>
+  <button (click)="useNgIf()">click me</button>
+  <h4 *ngIf="result">It is displayed because of a truthy value</h4>
+</div>
+<h2>ngSwitch :</h2>
+<div class="container">
+  <h4>Select a fruit:</h4>
+  <select [(ngModel)]="fruit">
+    <option disabled>Fruits</option>
+    <option value="Apple" selected>Apple</option>
+    <option>Mango</option>
+    <option>Grapes</option>
+  </select>
+  <ul [ngSwitch]="fruit">
+    <li *ngSwitchCase="'Apple'">You have selected apple</li>
+    <li *ngSwitchCase="'Mango'">You have selected mango</li>
+    <li *ngSwitchCase="'Grapes'">You have selected grapes</li>
+    <li *ngSwitchDefault>You haven't selected a fruit</li>
+  </ul>
+</div>

@@ -9,3 +9,11 @@ export class AppComponent {
   title = 'myProject';
   fontSize = 16;
 }
+export interface Dog {
+  breed: string;
+  species: string[];
+}
+export interface Api {
+  message: Object;
+  status: String;
+}

@@ -9,11 +9,34 @@
 <!--  parent listens to child interaction -->
 
 <!-- <app-votetaker> -->
-  <!-- <p>Checking content projection</p>    
+
+<!-- <p>Checking content projection</p>    
   <p question>Working fine?</p> -->
+
 <!-- </app-votetaker> -->
 
-<!-- Template - Piping -->
+<!-- Template - Practice -->
 
-<app-template-practice [(size)]="fontSize"></app-template-practice>
-<p [style.font-size.px]="fontSize">Resizable Text</p>
+<!-- <app-template-practice [(size)]="fontSize"></app-template-practice>
+<p [style.font-size.px]="fontSize">Resizable Text</p> -->
+
+<!-- service -->
+
+<!-- <app-dogs></app-dogs> -->
+
+<!-- directives -->
+<!-- <app-directive-practice></app-directive-practice> -->
+
+<nav>
+  <h2>TOPICS :</h2>
+  <ul>
+    <li><a routerLink="/component">Component-interaction</a></li>
+    <li><a routerLink="/childToParent">Child to parent interaction</a></li>
+    <li><a routerLink="/encapsulate">Encapsulation</a></li>
+    <li><a routerLink="/template">Templates-practice</a></li>
+    <li><a routerLink="/directive">Directives-practice</a></li>
+    <li><a routerLink="/service">Services-practice</a></li>
+    <li><a routerLink="/customers">Lazy loading</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
