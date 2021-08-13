@@ -1,0 +1,63 @@
+<form class="form-control" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">FirstName :</label>
+    <div class="col-sm-10">
+      <input type="text" formControlName="firstname" class="form-control" />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">LastName :</label>
+    <div class="col-sm-10">
+      <input type="text" formControlName="lastname" class="form-control" />
+    </div>
+  </div>
+  <div class="mb-3 row" formGroupName="address">
+    <div class="mb-3 row">
+      <label class="col-sm-2 col-form-label">City :</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="city" class="form-control" />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-sm-2 col-form-label">State :</label>
+      <div class="col-sm-10">
+        <input type="text" formControlName="state" class="form-control" />
+      </div>
+    </div>
+  </div>
+  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!profileForm.valid"
+    >
+      submit
+    </button>
+    <button type="submit" class="btn btn-warning" (click)="updateAll()">
+      updateAll
+    </button>
+    <button type="button" class="btn btn-primary" (click)="updateFirstName()">
+      update
+    </button>
+  </div>
+  <p *ngIf="display" style="margin-top: 9px">
+    <b>FirstName :</b> {{ profileForm.value.firstname }}, <b> Lastname : </b
+    >{{ profileForm.value.lastname }}
+  </p>
+  <form [formGroup]="profileform">
+    <div formArrayName="aliases">
+      <h4 style="margin: 12px">Aliases :</h4>
+      <button class="btn btn-info" (click)="addAliases()">Add aliases</button>
+      <div *ngFor="let aliase of aliases.controls; let i = index">
+        <div class="mb-3 row">
+          <label class="col-sm-2 col-form-label" for="aliase-{{ i }}"
+            >Aliase :</label
+          >
+          <div class="col-sm-10">
+            <input type="text" formControlName="{{i}}" class="form-control" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</form>

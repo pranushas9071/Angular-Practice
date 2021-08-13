@@ -17,6 +17,10 @@ import { VotetakerComponent } from './votetaker/votetaker.component';
 import { DogPipe } from './dog.pipe';
 import { DirectivePracticeComponent } from './directive-practice/directive-practice.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './login/login.component';
+import { UnsavedChangesGuard } from './unsaved-changes.guard';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     DogPipe,
     DirectivePracticeComponent,
     PageNotFoundComponent,
+    LoginComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard,UnsavedChangesGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
