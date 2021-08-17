@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+
 import { TemplatePracticeComponent } from './template-practice.component';
+import {MyPipe} from '../myPipe.pipe'
 
 describe('TemplatePracticeComponent', () => {
   let component: TemplatePracticeComponent;
@@ -8,7 +10,7 @@ describe('TemplatePracticeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplatePracticeComponent ]
+      declarations: [ TemplatePracticeComponent,MyPipe ]
     })
     .compileComponents();
   });

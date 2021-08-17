@@ -50,3 +50,10 @@ input {
   padding: 0.5rem;
 }
 
+.container{
+  border: 1px solid black;
+  margin-left: 40px;
+  margin-right: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}

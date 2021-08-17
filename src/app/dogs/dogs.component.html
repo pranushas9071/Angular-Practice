@@ -1,12 +1,193 @@
-<h4>DOGS :</h4>
-<ul class="dogs">
-  <li *ngFor="let dog of dogs">
-    <span class="badge">{{ dog.breed }}</span>
-    {{ dog.species }}
-  </li>
-</ul>
+<!-- listing all dog breeds and species from my api -->
 
+<h4>Listing all dog breeds and species from my API :</h4>
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="displayAll()"
+  style="margin: 10px; margin-left: 50px"
+>
+  List all breeds
+</button>
+<div class="container" *ngIf="displayAl">
+  <div
+    class="card"
+    style="width: 18rem; display: inline-block; margin: 5px"
+    *ngFor="let dog of allDogs"
+  >
+    <div class="card-body">
+      <h5 class="card-title">{{ dog.breed }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ dog.species }}</h6>
+    </div>
+  </div>
+</div>
+<!-- <div class="container">
+  <ul class="dogs">
+    <li *ngFor="let entry of allDogs">
+      <span class="badge">{{ entry.breed }}</span> {{ entry.species }}
+    </li>
+  </ul>
+</div> -->
+<h4>Enter a breed to list the species :</h4>
+<div class="container">
+  <form [formGroup]="getSpeciesForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="breed" class="col-sm-2 col-form-label">Breed :</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="breed"
+          formControlName="breed"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div class="container" *ngIf="display">
+  <p><b>Dog Data :</b></p>
+  <div class="card" style="width: 18rem; display: inline-block; margin: 5px">
+    <div class="card-body">
+      <h5 class="card-title">{{ getSpeciesForm.value.breed }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ species[0].species }}</h6>
+    </div>
+  </div>
+</div>
+
+<h4>Adding a breed :</h4>
+<div class="container">
+  <form [formGroup]="addingBreedForm" (ngSubmit)="createBreed()">
+    <div class="mb-3">
+      <label for="breed" class="col-sm-2 col-form-label">Breed :</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="breed"
+          formControlName="breed"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+  </form>
+</div>
+
+<div *ngIf="addBreedResult">
+  <p class="list-group-item list-group-item-success">
+    Breed added successfully
+  </p>
+</div>
+
+<h4>Adding species to a breed :</h4>
+<div class="container">
+  <form [formGroup]="addingSpeciesForm" (ngSubmit)="addSpecies()">
+    <div class="mb-3">
+      <label for="breed" class="col-sm-2 col-form-label">Breed :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="breed" />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="species" class="col-sm-2 col-form-label">Species :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="species" />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+</div>
+
+<div *ngIf="addSpeciesResult">
+  <p class="list-group-item list-group-item-success">
+    Species added successfully
+  </p>
+</div>
+
+<h4>Deleting a breed :</h4>
+<div class="container">
+  <form [formGroup]="deletingBreedForm" (ngSubmit)="deleteBreed()">
+    <div class="mb-3">
+      <label for="breed" class="col-sm-2 col-form-label">Breed :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="breed" />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>
+
+<div *ngIf="deleteBreedResult">
+  <p class="list-group-item list-group-item-success">
+    Breed deleted successfully
+  </p>
+</div>
+
+<h4>Deleting a species of a breed :</h4>
+<div class="container">
+  <form [formGroup]="deletingSpeciesForm" (ngSubmit)="deleteSpecies()">
+    <div class="mb-3">
+      <label for="breed" class="col-sm-2 col-form-label">Breed :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="breed" />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="species" class="col-sm-2 col-form-label">Species :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="species" />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>
+
+<div *ngIf="deleteSpeciesResult">
+  <p class="list-group-item list-group-item-success">
+    Species deleted successfully
+  </p>
+</div>
+
+<h4>Listing all dog breeds and species from an array of object :</h4>
+<div class="container">
+  <div
+    class="card"
+    style="width: 16rem; display: inline-block; margin: 5px"
+    *ngFor="let dog of dogs"
+  >
+    <div class="card-body">
+      <h5 class="card-title">{{ dog.breed }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ dog.species }}</h6>
+    </div>
+  </div>
+</div>
+
+<!-- <ul class="dogs">
+    <li *ngFor="let dog of dogs">
+      <span class="badge">{{ dog.breed }}</span>
+      {{ dog.species }}
+    </li>
+  </ul> -->
+
+<!-- listing all dog breeds and species from dog api -->
 <h4>Listing all dog breeds and species from Dog API :</h4>
-<ul class="dogs">
-  <li *ngFor="let entry of list | keyvalue"><span class="badge">{{ entry.key }}</span>  {{entry.value}}</li>
-</ul>
+<div class="container">
+  <div
+    class="card"
+    style="width: 18rem; display: inline-block; margin: 5px"
+    *ngFor="let entry of list | keyvalue"
+  >
+    <div class="card-body">
+      <h5 class="card-title">{{ entry.key }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ entry.value }}</h6>
+    </div>
+  </div>
+</div>
+<!-- <div class="container">
+  <ul class="dogs">
+    <li *ngFor="let entry of list | keyvalue">
+      <span class="badge">{{ entry.key }}</span> {{ entry.value }}
+    </li>
+  </ul>
+</div> -->

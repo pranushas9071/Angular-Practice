@@ -21,6 +21,7 @@ import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { UnsavedChangesGuard } from './unsaved-changes.guard';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     PageNotFoundComponent,
     LoginComponent,
     ReactiveFormComponent,
+    TemplateDrivenFormComponent,
   ],
   imports: [
     BrowserModule,

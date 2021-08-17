@@ -6,6 +6,7 @@ import { DogsComponent } from './dogs/dogs.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { TemplatePracticeComponent } from './template-practice/template-practice.component';
 import { ThirdComponent } from './third/third.component';
 import { UnsavedChangesGuard } from './unsaved-changes.guard';
@@ -34,6 +35,7 @@ const routes: Routes = [
     canDeactivate: [UnsavedChangesGuard],
   },
   { path: 'profile', component: ReactiveFormComponent },
+  {path:'signin',component:TemplateDrivenFormComponent},
   { path: '', redirectTo: '/service', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

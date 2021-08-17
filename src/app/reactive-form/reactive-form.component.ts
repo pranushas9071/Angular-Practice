@@ -16,8 +16,16 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   profileForm = new FormGroup({
-    firstname: new FormControl('', Validators.required),
+    firstname: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]),
     lastname: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    mobile: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^\\d{10}$'),
+    ]),
     address: new FormGroup({
       city: new FormControl(''),
       state: new FormControl(''),
@@ -47,6 +55,8 @@ export class ReactiveFormComponent implements OnInit {
     this.profileForm.setValue({
       firstname: 'Pranusha',
       lastname: 'S',
+      email: 'abc@getMaxListeners.com',
+      mobile: '9988776655',
       address: { city: 'Coimbatore', state: 'Tamil Nadu' },
     });
     console.log(`Updated values : ${this.profileForm.value}`);
@@ -64,6 +74,10 @@ export class ReactiveFormComponent implements OnInit {
 
   addAliases() {
     this.aliases.push(this.fb.control(''));
+  }
+
+  get getControl() {
+    return this.profileForm.controls;
   }
   ngOnInit(): void {}
 }

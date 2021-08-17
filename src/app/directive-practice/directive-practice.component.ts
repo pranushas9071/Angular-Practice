@@ -24,6 +24,9 @@ export class DirectivePracticeComponent implements OnInit {
   useNgIf() {
     this.result = !this.result;
   }
+  sum(a:number,b:number){
+    return a+b;
+  }
   ngOnInit(): void {
     console.log(this.fruit);
   }

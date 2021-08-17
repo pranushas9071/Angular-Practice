@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DogsComponent } from './dogs.component';
+
 
 describe('DogsComponent', () => {
   let component: DogsComponent;
@@ -8,9 +10,10 @@ describe('DogsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DogsComponent ]
-    })
-    .compileComponents();
+      imports:[HttpClientTestingModule],
+      declarations: [DogsComponent],
+      providers: [HttpClient],
+    }).compileComponents();
   });
 
   beforeEach(() => {

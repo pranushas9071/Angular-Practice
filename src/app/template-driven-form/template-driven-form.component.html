@@ -1,0 +1,89 @@
+<form #signInForm="ngForm" (ngSubmit)="loginUser(signInForm)">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      name="emailAddress"
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      required
+      [(ngModel)]="model.emailAddress"
+      #email="ngModel"
+      pattern="^[a-z0-7._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+    />
+    <div id="emailHelp" class="form-text">
+      We'll never share your email with anyone else.
+    </div>
+  </div>
+  <div
+    *ngIf="
+      email.invalid &&
+      (signInForm.controls.emailAddress.dirty ||
+        signInForm.controls.emailAddress.touched)
+    "
+  >
+    <div
+      *ngIf="signInForm.controls.emailAddress.errors?.required"
+      class="alert alert-danger"
+      role="alert"
+    >
+      email is required
+    </div>
+    <div
+      *ngIf="email.errors?.pattern"
+      class="alert alert-danger"
+      role="alert"
+    >
+      Please provide a valid email
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      name="password"
+      ngModel
+    />
+  </div>
+
+  <label class="form-label">Gender:</label>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="gender"
+      id="flexRadioDefault1"
+      value="male"
+      ngModel
+    />
+    <label class="form-check-label" for="flexRadioDefault1"> Male </label>
+  </div>
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="gender"
+      id="flexRadioDefault2"
+      value="female"
+      checked
+      ngModel
+    />
+    <label class="form-check-label" for="flexRadioDefault2"> Female </label>
+  </div>
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="exampleCheck1"
+      name="check"
+      ngModel
+    />
+    <label class="form-check-label" for="exampleCheck1"
+      >Agree to terms and conditions</label
+    >
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
