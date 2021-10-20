@@ -10,6 +10,13 @@
           "strict": true
         }
       },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ta": "src/locale/messages.ta.xlf",
+          "en":"src/locale/messages.xlf"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,20 +24,25 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/myProject",
+            "aot": true,
+            "localize":true,
+            "outputPath": "dist/myProject/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
             ],
             "scripts": [],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "webWorkerTsConfig": "tsconfig.worker.json",
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -54,6 +66,12 @@
               ],
               "outputHashing": "all"
             },
+            "ta":{
+              "localize":["ta"]
+            },
+            "en":{
+              "localize":["en"]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -70,6 +88,12 @@
           "configurations": {
             "production": {
               "browserTarget": "myProject:build:production"
+            },
+            "ta": {
+              "browserTarget": "myProject:build:ta"
+            },
+            "en":{
+              "browserTarget": "myProject:build:en"
             },
             "development": {
               "browserTarget": "myProject:build:development"
@@ -92,7 +116,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css"
@@ -100,6 +125,65 @@
             "scripts": [],
             "webWorkerTsConfig": "tsconfig.worker.json"
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/myProject/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "ta": {},
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "myProject:build:development",
+              "serverTarget": "myProject:server:development"
+            },
+            "production": {
+              "browserTarget": "myProject:build:production",
+              "serverTarget": "myProject:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "myProject:build:production",
+              "serverTarget": "myProject:server:production"
+            },
+            "development": {
+              "browserTarget": "myProject:build:development",
+              "serverTarget": "myProject:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
