@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { DirectivePracticeComponent } from './directive-practice/directive-practice.component';
 import { DogsComponent } from './dogs/dogs.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 import { InternationalizationComponent } from './internationalization/internationalization.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'signin', component: TemplateDrivenFormComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'i18n', component: InternationalizationComponent },
+  {path:'upload',component:FileUploadComponent},
   { path: '', redirectTo: '/service', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

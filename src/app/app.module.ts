@@ -26,6 +26,7 @@ import { VotetakerComponent } from './votetaker/votetaker.component';
 import { InternationalizationComponent } from './internationalization/internationalization.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { environment } from '../environments/environment';
     TemplateDrivenFormComponent,
     RegistrationComponent,
     InternationalizationComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
