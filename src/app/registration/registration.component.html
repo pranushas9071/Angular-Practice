@@ -1,0 +1,133 @@
+<form [formGroup]="userProfile" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      formControlName="username"
+    />
+  </div>
+
+  <div
+    *ngIf="
+      getControl.username.invalid &&
+      (getControl.username.touched || getControl.username.dirty)
+    "
+  >
+    <div
+      *ngIf="getControl.username.errors?.required"
+      class="alert alert-danger"
+      role="alert"
+    >
+      Username is required!
+    </div>
+    <div
+      *ngIf="getControl.username.errors?.minlength"
+      class="alert alert-danger"
+      role="alert"
+    >
+      Username must be atleast 8 characters long!
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="username" class="form-label">email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+    />
+  </div>
+
+  <div
+  *ngIf="
+    getControl.email.invalid &&
+    (getControl.email.touched || getControl.email.dirty)
+  "
+>
+  <div
+    *ngIf="getControl.email.errors?.required"
+    class="alert alert-danger"
+    role="alert"
+  >
+    email is required!
+  </div>
+  <div
+    *ngIf="getControl.email.errors?.email"
+    class="alert alert-danger"
+    role="alert"
+  >
+    Please provide a valid email ID
+  </div>
+</div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+    />
+  </div>
+
+  <div
+  *ngIf="
+    getControl.password.invalid &&
+    (getControl.password.touched || getControl.password.dirty)
+  "
+>
+  <div
+    *ngIf="getControl.password.errors?.required"
+    class="alert alert-danger"
+    role="alert"
+  >
+    password is required!
+  </div>
+  <div
+    *ngIf="getControl.password.errors?.minlength"
+    class="alert alert-danger"
+    role="alert"
+  >
+    password must be atleast 8 characters long!
+  </div>
+</div>
+  
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="confirmPassword"
+      formControlName="confirmPassword"
+    />
+  </div>
+
+  <div
+  *ngIf="
+    getControl.confirmPassword.invalid &&
+    (getControl.confirmPassword.touched || getControl.confirmPassword.dirty)
+  "
+>
+  <div
+    *ngIf="getControl.confirmPassword.errors?.required"
+    class="alert alert-danger"
+    role="alert"
+  >
+    ConfirmPassword is required!
+  </div>
+  <div
+    *ngIf="getControl.confirmPassword.errors?.passwordMisMatch"
+    class="alert alert-danger"
+    role="alert"
+  >
+    Password doesn't match!
+  </div>
+</div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!userProfile.valid">
+    submit
+  </button>
+</form>
